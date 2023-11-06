@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<style>
+
+    html,
+    body,
+    .intro {
+      height: 100%;
+    }
+    
+    .gradient-custom-2 {
+      /* fallback for old browsers */
+      background: #6a11cb;
+    
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to top, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to top, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    }
+    
+    table td,
+    table th {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    
+    thead th,
+    tbody th {
+      color: #fff;
+    }
+    
+    tbody td {
+      font-weight: 500;
+      color: rgba(255,255,255,.65);
+    }
+
+</style>
+<body>
+{% block body %}
+
+<section class="intro">
+    <div class="gradient-custom-2 h-100">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="table-responsive">
+                <table class="table table-dark table-bordered mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">MOVIE</th>
+                      <th scope="col">ABOUT</th>
+                      <th scope="col">STORY-LINE</th>
+                      <th scope="col">charge</th>
+                      <th scope="col">TIME</th>
+                      <th scope="col">BOOK</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for d in data %}
+                    <tr>
+                      <th scope="row">{{d.id}}</th>
+                      <td>{{d.mname}}</td>
+                      <td>{{d.mabout}}</td>
+                      <td>{{d.mstory}}</td>
+                      <td>{{d.mcharge}}</td>
+                      <td>{{d.mtime}}</td>
+                      <td><a type="button" href="/book/{{d.id}}" class="btn btn-outline-success">BooK Show</a></td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock body %}
+
+</body>
